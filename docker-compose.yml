@@ -22,7 +22,7 @@ services:
       - ./opt/collectd/share/collectd:/opt/collectd/share/collectd
     ports:
       - "8086:8086"
-      - "25826:25826"
+      - "25826:25826/udp"
 
   create-db:
     image: appropriate/curl
