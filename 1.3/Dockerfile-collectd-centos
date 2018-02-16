@@ -1,0 +1,8 @@
+FROM centos
+
+RUN yum install -y epel-release && yum install -y collectd git
+RUN yum install -y rrdtool rrdtool-devel rrdtool-perl perl-HTML-Parser perl-JSON
+
+ADD collectd.conf /etc/collectd.conf
+
+CMD ["collectd", "-f"]
