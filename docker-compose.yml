@@ -24,6 +24,12 @@ services:
       - "8086:8086"
       - "25826:25826"
 
+  create-db:
+    image: appropriate/curl
+    command: ["-G", "http://influxdb:8086/query", "--data-urlencode", "q=CREATE DATABASE collectd_db"]
+    depends_on:
+      - "influxdb"
+
   # Define a grafana service
   grafana:
     image: grafana/grafana
